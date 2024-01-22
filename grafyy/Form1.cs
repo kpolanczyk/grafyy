@@ -154,6 +154,10 @@ namespace grafyy
                     {
                         wyniki = PrzeszukiwanieWszerz(startowyWierzcholek);
                     }
+                    else if (wglab.Checked)
+                    {
+                        wyniki = PrzeszukiwanieWGlab(startowyWierzcholek);
+                    }
                     else
                     {
                         MessageBox.Show("Zaznacz algorytm przeszukiwania.", "Błąd");
@@ -201,8 +205,34 @@ namespace grafyy
 
             return wyniki;
         }
+        private List<int> PrzeszukiwanieWGlab(Wierzcholek startowyWierzcholek)
+        {
+            List<int> wyniki = new List<int>();
+            Stack<Wierzcholek> stos = new Stack<Wierzcholek>();
+            HashSet<Wierzcholek> odwiedzone = new HashSet<Wierzcholek>();
 
-        private void Wynik_SelectedIndexChanged(object sender, EventArgs e)
+            stos.Push(startowyWierzcholek);
+            odwiedzone.Add(startowyWierzcholek);
+
+            while (stos.Count > 0)
+            {
+                Wierzcholek aktualny = stos.Pop();
+                wyniki.Add(aktualny.Id);
+
+                foreach (Wierzcholek sasiad in aktualny.Nastepniki)
+                {
+                    if (!odwiedzone.Contains(sasiad))
+                    {
+                        stos.Push(sasiad);
+                        odwiedzone.Add(sasiad);
+                    }
+                }
+            }
+
+            return wyniki;
+        }
+
+            private void Wynik_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -214,12 +244,15 @@ namespace grafyy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            wierzcholki.Clear();
+            MouseDownWierzcholek = null;
+            odrysujGraf();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            Wynik.Items.Clear();
         }
 
         private void label2_Click(object sender, EventArgs e)
