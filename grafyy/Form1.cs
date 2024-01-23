@@ -189,7 +189,7 @@ namespace grafyy
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            Wynik.Items.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -203,7 +203,6 @@ namespace grafyy
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Wynik.Items.Clear();
         }
 
         private void label2_Click(object sender, EventArgs e)
