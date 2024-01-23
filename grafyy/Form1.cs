@@ -25,7 +25,6 @@ namespace grafyy
             InitializeComponent();
 
             pictureBox1.Image = new Bitmap(450, 500);
-
             g = Graphics.FromImage(pictureBox1.Image);
             g.Clear(Color.White);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -34,8 +33,8 @@ namespace grafyy
 
             pWierzcholek = new Pen(Color.DarkGreen);
             pWierzcholek.Width = 3;
-            pWierzcholekAktywny = new Pen(Color.Red);
-            pWierzcholekAktywny.Width = 3;
+            pWierzcholekAktywny = new Pen(Color.LightBlue);
+            pWierzcholekAktywny.Width = 2;
 
             pKrawedz = new Pen(Color.LawnGreen);
             pKrawedz.Width = 5;
@@ -92,8 +91,8 @@ namespace grafyy
 
                 g.DrawEllipse(pWierzcholek, w.Polozenie.X - r, w.Polozenie.Y - r, 2 * r, 2 * r);
                 g.DrawString(w.Id.ToString(),
-                             new System.Drawing.Font("Microsoft Sans Serif", r),
-                             new SolidBrush(Color.Red),
+                             new System.Drawing.Font("Segoe Print", r),
+                             new SolidBrush(Color.Black),
                              w.Polozenie.X + r,
                              w.Polozenie.Y + r);
                 if (w == MouseDownWierzcholek)
@@ -133,12 +132,10 @@ namespace grafyy
         {
 
         }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-
         private void szukanie_Click(object sender, EventArgs e)
         {
             Wynik.Items.Clear();
