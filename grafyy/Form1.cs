@@ -19,7 +19,7 @@ namespace grafyy
         private Pen pKrawedz;
         private Wierzcholek MouseDownWierzcholek;
         private List<Wierzcholek> wierzcholki = new List<Wierzcholek>();
-
+        private PrzeszukiwanieGrafu przeszukiwanieGrafu;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +29,8 @@ namespace grafyy
             g = Graphics.FromImage(pictureBox1.Image);
             g.Clear(Color.White);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+            przeszukiwanieGrafu = new PrzeszukiwanieGrafu();
 
             pWierzcholek = new Pen(Color.DarkGreen);
             pWierzcholek.Width = 3;
@@ -152,11 +154,11 @@ namespace grafyy
 
                     if (wszerz.Checked)
                     {
-                        wyniki = PrzeszukiwanieWszerz(startowyWierzcholek);
+                        wyniki = przeszukiwanieGrafu.PrzeszukiwanieWszerz(startowyWierzcholek);
                     }
                     else if (wglab.Checked)
                     {
-                        wyniki = PrzeszukiwanieWGlab(startowyWierzcholek);
+                        wyniki = przeszukiwanieGrafu.PrzeszukiwanieWGlab(startowyWierzcholek);
                     }
                     else
                     {

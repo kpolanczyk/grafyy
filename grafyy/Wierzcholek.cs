@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace grafyy
 {
-    internal class Wierzcholek
+    public class Wierzcholek
     {
         public Point Polozenie { get; }
         public Int32 Id { get; }
