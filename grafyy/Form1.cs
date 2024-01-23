@@ -246,6 +246,7 @@ namespace grafyy
         {
             wierzcholki.Clear();
             MouseDownWierzcholek = null;
+            Wierzcholek.ResetujLicznikID();
             odrysujGraf();
 
         }
