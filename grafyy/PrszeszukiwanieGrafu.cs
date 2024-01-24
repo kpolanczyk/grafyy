@@ -11,54 +11,47 @@ namespace grafyy
         public List<int> PrzeszukiwanieWszerz(Wierzcholek startowyWierzcholek)
         {
             List<int> wyniki = new List<int>();
-            Queue<Wierzcholek> kolejka = new Queue<Wierzcholek>();
-            HashSet<Wierzcholek> odwiedzone = new HashSet<Wierzcholek>();
-
-            kolejka.Enqueue(startowyWierzcholek);
-            odwiedzone.Add(startowyWierzcholek);
-
-            while (kolejka.Count > 0)
+            Queue<Wierzcholek> Queue = new Queue<Wierzcholek>();
+            HashSet<Wierzcholek> Visited = new HashSet<Wierzcholek>();
+            Queue.Enqueue(startowyWierzcholek);
+            Visited.Add(startowyWierzcholek);
+            while (Queue.Count > 0)
             {
-                Wierzcholek aktualny = kolejka.Dequeue();
+                Wierzcholek aktualny = Queue.Dequeue();
                 wyniki.Add(aktualny.Id);
-
-                foreach (Wierzcholek sasiad in aktualny.Nastepniki)
+                foreach (Wierzcholek Sasiad in aktualny.Nastepniki)
                 {
-                    if (!odwiedzone.Contains(sasiad))
+                    if (!Visited.Contains(Sasiad))
                     {
-                        kolejka.Enqueue(sasiad);
-                        odwiedzone.Add(sasiad);
+                        Queue.Enqueue(Sasiad);
+                        Visited.Add(Sasiad);
                     }
                 }
             }
-
             return wyniki;
         }
 
         public List<int> PrzeszukiwanieWGlab(Wierzcholek startowyWierzcholek)
         {
             List<int> wyniki = new List<int>();
-            Stack<Wierzcholek> stos = new Stack<Wierzcholek>();
-            HashSet<Wierzcholek> odwiedzone = new HashSet<Wierzcholek>();
-
-            stos.Push(startowyWierzcholek);
-            odwiedzone.Add(startowyWierzcholek);
-
-            while (stos.Count > 0)
+            Stack<Wierzcholek> Stack = new Stack<Wierzcholek>();
+            HashSet<Wierzcholek> Visited = new HashSet<Wierzcholek>();
+            Stack.Push(startowyWierzcholek);
+            Visited.Add(startowyWierzcholek);
+            while (Stack.Count > 0)
             {
-                Wierzcholek aktualny = stos.Pop();
+                Wierzcholek aktualny = Stack.Pop();
                 wyniki.Add(aktualny.Id);
 
-                foreach (Wierzcholek sasiad in aktualny.Nastepniki)
+                foreach (Wierzcholek Sasiad in aktualny.Nastepniki)
                 {
-                    if (!odwiedzone.Contains(sasiad))
+                    if (!Stack.Contains(Sasiad))
                     {
-                        stos.Push(sasiad);
-                        odwiedzone.Add(sasiad);
+                        Stack.Push(Sasiad);
+                        Visited.Add(Sasiad);
                     }
                 }
             }
-
             return wyniki;
         }
     }

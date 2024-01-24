@@ -44,8 +44,6 @@ namespace grafyy
             pictureBox1.MouseUp += pictureBox1_MouseUp;
             pictureBox1.MouseMove += pictureBox1_MouseMove;
         }
-
-
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -61,7 +59,6 @@ namespace grafyy
                 odrysujGraf();
             }
         }
-
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && MouseDownWierzcholek != null)
@@ -82,7 +79,6 @@ namespace grafyy
                 odrysujGraf();
             }
         }
-
         private void odrysujGraf()
         {
             g.Clear(Color.White);
@@ -106,7 +102,6 @@ namespace grafyy
             }
             pictureBox1.Refresh();
         }
-
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && MouseDownWierzcholek != null)
@@ -117,24 +112,17 @@ namespace grafyy
             }
 
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
         }
-
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
         }
-
         private void pierwszy_TextChanged(object sender, EventArgs e)
         {
-
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
         }
         private void szukanie_Click(object sender, EventArgs e)
         {
@@ -178,17 +166,13 @@ namespace grafyy
                 MessageBox.Show("Wprowadź poprawny numer wierzchołka.", "Błąd");
             }
         }
-
             private void Wynik_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Wynik.Items.Clear();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             wierzcholki.Clear();
@@ -197,14 +181,11 @@ namespace grafyy
             odrysujGraf();
 
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
